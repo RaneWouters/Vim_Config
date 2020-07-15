@@ -1,9 +1,9 @@
 call plug#begin('~/.config/nvim/plugged')
+
 Plug 'frazrepo/vim-rainbow'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
-Plug '/home/rane/.config/nvim/plugged/taglist'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 
@@ -35,11 +35,12 @@ set relativenumber  " The number of line relatively."
 
 set showcmd         " Show (partial) command in status line.
 
-set showmode        " Show the vim mode at the bottom."
+"set showmode         Show the vim mode at the bottom."
+set noshowmode
 
 set number          " Show line numbers.
 
-set cursorline      " Highlight this line."
+"set cursorline       Highlight this line."
 
 set scrolloff=8     " when scroll the number of the line left."
 
@@ -84,12 +85,14 @@ set mouse=a         " Enable the use of the mouse.
 set laststatus=2    "the status bar display always
 
 set foldenable      "fold enable
-set foldmethod=manual   "manual fold
+set foldmethod=indent   "manual fold
 
 set noerrorbells
 
 "set listchars=tab:»■,trail:■
 set list
+
+"set statusline+=%{coc#status()}
 
 highlight Pmenu ctermbg=111
 highlight PmenuSel ctermbg=172 ctermfg=15
@@ -109,7 +112,7 @@ syntax on
 let g:rainbow_active = 1
 
 let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']]  ],
+   \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']]  ],
     \ [ '*.tex' , [['(', ')'], ['\[', '\]']]  ],
     \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']]  ],
     \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']]  ],
@@ -298,4 +301,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " " Do default action for previous item.
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " " Resume latest coc list.
-" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent> <space>p  :<C-u>CocListResume<CR> 
+
+let g:python3_host_prog = '/usr/bin/python3'
