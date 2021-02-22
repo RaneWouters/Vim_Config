@@ -6,6 +6,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
+Plug 'rhysd/vim-clang-format'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 call plug#end()
 
@@ -14,6 +16,11 @@ call plug#end()
 "------------
 " For multi-byte character support (CJK support, for example):
 " set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,gb18030,latin1
+
+
+"set termguicolors
+
+let mapleader="\<space>"
 
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
 
@@ -106,6 +113,16 @@ inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 
 syntax on
+
+
+
+"------------------
+"---clang_format---
+"------------------
+"let g:clang_format#auto_format_on_insert_leave=1
+let g:clang_format#style_options = { "BasedOnStyle" : "Chromium"}
+
+
 "--------------------------------------------------------------------------------------------------
 "-----------------------------------vim-rainbow_config---------------------------------------------
 "--------------------------------------------------------------------------------------------------
@@ -143,6 +160,8 @@ let g:NERDTreeWinSize=25
 "-------Coc.vim_config------------
 "---------------------------------
 
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 " TextEdit might fail if hidden is not set.
 " set hidden
 "
@@ -151,7 +170,7 @@ let g:NERDTreeWinSize=25
 " set nowritebackup
 "
 "" Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads
 " to noticeable
@@ -228,8 +247,8 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 "
 "augroup mygroup
 "  autocmd!
@@ -303,4 +322,12 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " " Resume latest coc list.
 " nnoremap <silent> <space>p  :<C-u>CocListResume<CR> 
 
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3.6'
+
+"-------------------------------------------
+"------------highlight----------------------
+"-------------------------------------------
+
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_member_variable_highlight = 1
+
