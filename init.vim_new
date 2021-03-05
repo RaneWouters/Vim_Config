@@ -40,7 +40,7 @@ set noshowmode
 
 set number                  " Show line numbers.
 
-set scrolloff=8             " when scroll the number of the line left.
+set scrolloff=12            " when scroll the number of the line left.
 
 set showmatch               " highlight the brackets matched.
 
@@ -93,8 +93,11 @@ nmap <silent> gr <Plug>(coc-references)
 
 nmap <leader>rn <Plug>(coc-rename)
 
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>f  :ClangFormat<CR>
+nmap <leader>f  :ClangFormat<CR> 
+
+xmap <leader>q :CocAction<CR> 
+nmap <leader>q :CocAction<CR>
 
 
             "---------------------------------
@@ -113,4 +116,16 @@ let g:rainbow_guifgs = ['darkorange', 'yellow', 'springgreen', 'cyan', 'red', 'r
             "---------------------------------
             "-----------vimspector------------
             "---------------------------------
-let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+nmap <F3> :VimspectorReset<CR>
+nmap <F4> <Plug>VimspectorRestart
+nmap <F5> <Plug>VimspectorContinue
+nmap <F6> <Plug>VimspectorRunToCursor
+nmap <F8> <Plug>VimspectorStepOver
+nmap <F9> <Plug>VimspectorToggleBreakpoint
+
+xmap <F3> :VimspectorReset<CR>
+xmap <F4> <Plug>VimspectorRestart
+xmap <F5> <Plug>VimspectorContinue
+xmap <F6> <Plug>VimspectorRunToCursor
+xmap <F8> <Plug>VimspectorStepOver
+xmap <F9> <Plug>VimspectorToggleBreakpoint
