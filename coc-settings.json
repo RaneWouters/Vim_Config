@@ -1,0 +1,8 @@
+{
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd",
+  "suggest.noselect": true,
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfArgs": ["--style", "{based_on_style: google}"],
+  "coc.preferences.formatOnSaveFiletypes": ["python"],
+  "python.analysis.typeCheckingMode": "off"
+}
