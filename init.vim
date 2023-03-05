@@ -124,7 +124,7 @@ let g:clang_format#style_options = { "BasedOnStyle" : "Chromium"}
 let g:rainbow_active = 1    " rainbow on always.
 let g:rainbow_guifgs = ['darkorange', 'yellow', 'springgreen', 'cyan', 'red', 'royalblue']
 
-
+ 
             "---------------------------------
             "-----------vimspector------------
             "---------------------------------
