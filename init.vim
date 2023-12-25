@@ -8,6 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'puremourning/vimspector'
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -115,7 +116,7 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
             "---------------------------------
             "------clang-format Config--------
             "---------------------------------
-let g:clang_format#style_options = { "BasedOnStyle" : "Chromium"}
+let g:clang_format#style_options = { "BasedOnStyle" : "chromium"}
 
 
             "---------------------------------
@@ -141,3 +142,12 @@ xmap <F5> <Plug>VimspectorContinue
 xmap <F6> <Plug>VimspectorRunToCursor
 xmap <F8> <Plug>VimspectorStepOver
 xmap <F9> <Plug>VimspectorToggleBreakpointg
+
+
+" clipboard support for WSL2
+if system('uname -r') =~ "microsoft"
+  augroup Yank
+  autocmd!
+  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+  augroup END
+endif
